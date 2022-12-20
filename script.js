@@ -5,33 +5,28 @@ const form = document.getElementById('form')
 const errorElement = document.getElementById('error')
 
 form.addEventListener('submit', e => {
-
     e.preventDefault();
 
     validateinputs();
 });
 
-const validateinputs = () => {
-    const FullnameValue = username.value.trim();
-    const emailValue = email.value.trim();
-    const passwordValue = password.value.trim();
-}
+
 const setError = (element, message) => {
+    console.log(element.parentElement)
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
-
-    errorDisplay.innertext = message;
-    inputControl.classlist.add('error');
-    inputControl.classlist.remove('success');
+    errorDisplay.innerText = message;
+    inputControl.className = "input-control error"
+    
 }
 
-const setSuccess = (element) => {
+const setSuccess = element => {
+    console.log(element.parentElement)
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
+    inputControl.className = "input-control success"
 
-    errorDisplay.innertext = '';
-    inputControl.classlist.add('success');
-    inputControl.classlist.remove('error');
+    errorDisplay.innerText = ''; 
 }
 
 const isValidEmail = email => {
@@ -39,25 +34,31 @@ const isValidEmail = email => {
     return re.test(String(email).toLowerCase());
 }
 
+const validateinputs = () => {
+    const FullnameValue = username.value.trim();
+    const emailValue = email.value.trim();
+    const passwordValue = password.value.trim();
 
-if (FullnameValue === '') {
-    setError(username, 'Username is required')
-} else {
-    setSuccess(username);
-}
+    if (FullnameValue === '') {
+        setError(username, 'Username is required');
+    } else {
+        setSuccess(username);
+    }
 
-if (emailValue === '') {
-    setError(email, 'Email is required')
-} else if (!isValidEmail(emailValue)) {
-    setError(email, 'Email is not valid')
-} else {
-    setSuccess(email)
-}
+    if (emailValue === '') {
+        setError(email, 'Email is required');
+    } else if (!isValidEmail(emailValue)) {
+        setError(email, 'Email is not valid');
+    } else {
+        setSuccess(email);
+    }
 
-if (passwordValue === '') {
-    setError(password, 'Password is required');
-} else if (passwordValue.length <= 6) {
-    setError(password, 'Password must be. longer than 6 characters')
-} else {
-    setSuccess(password)
-}
+    if (passwordValue === '') {
+        setError(password, 'Password is required');
+    } else if (passwordValue.length < 6) {
+        setError(password, 'Password must be longer than 6 characters');
+    } else {
+        setSuccess(password);
+    }
+    console.log("success")
+};

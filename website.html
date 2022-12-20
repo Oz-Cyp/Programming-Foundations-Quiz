@@ -19,34 +19,33 @@
             <p>Don't have an account ?
                 <a href="">Create your account</a>, it takes less than a minute
             </p>
-            <form id="form" action="/">
-                <div class="labelpos"><label for="Fullname">Full Name</label>
-                </div>
-                <div class="input-control">
-                    <input id="username" name="username" type="text">
-                    <div class="error"></div>
-                </div>
-                <div class="labelpos"><label for="email">Email</label>
-                </div>
-                <div class="input-control">
-                    <input id="email" name="email" type="text">
-                    <div class="error"></div>
-                </div>
-                <div class="labelpos"><label for="password">Password</label>
-                </div>
-                <div class="input-control">
-                    <input id="password" name="password" type="password">
-                    <div class="error"></div>
-                </div>
-                <div class="check">
-                    <input type="checkbox" id="terms">
-                    <label for="terms">I accept Terms, Conditions & Privacy Policy. </label>
-                </div>
-                <button type="submit">Login</button>
-            </form>
         </div>
+        <form class="form" id="form" action="/" method="get">
+            <div class="input-control">
+                <label for="Fullname">Full Name</label>
+                <input id="username" name="username" type="text">
+                <div class="error"></div>
+                <br>
+            </div>
+            <div class="input-control">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="text">
+                <div class="error"></div>
+                <br>
+            </div>
+            <div class="input-control">
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password">
+                <div class="error"></div>
+                <br>
+            </div>
+            <div class="check">
+                <input type="checkbox" id="terms">
+                <label for="terms">I accept Terms, Conditions & Privacy Policy. </label>
+            </div>
+            <button type="submit">Login</button>
+        </form>
     </div>
-
 </body>
 
 </html>
